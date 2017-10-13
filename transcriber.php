@@ -20,14 +20,14 @@ if(isset($_FILES['resume'])){
 	$file_ext=strtolower(end(explode('.',$_FILES['resume']['name'])));
 
 
-	$expensions= array("pdf","doc","docx","rtf");
+	$expensions= array("pdf","doc","docx","rtf","txt");
 
 	if(in_array($file_ext,$expensions)=== false){
 		$errors[]="extension not allowed, please choose a valid resume/CV format file.";
 	}
 
 	if($file_size > 20971520){
-		$errors[]='File size must be excately 20 MB';
+		$errors[]='File size must be less than 20 MB';
 	}
 
 	if(empty($errors)==true){
