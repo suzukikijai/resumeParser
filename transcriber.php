@@ -4,7 +4,7 @@
 
 
 //DECLARATIONS
-$Resumeslocation = "/var/www/html/Untitled Folder/pdfminer/resume";
+$Resumeslocation = "/var/www/html/Untitled Folder/resumeParser/resume";
 
 
 
