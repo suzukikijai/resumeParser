@@ -31,6 +31,10 @@ if(isset($_FILES['resume'])){
 	$errors= array();
 	$file_name = $_FILES['resume']['name'];
 	$text_name = preg_replace('/(.*)\.[^.]+/', '$1', $file_name).'.txt';
+	$t=time();
+	$dir_name = date("YmdHis",$t);
+	// $dir_name = preg_replace('/(.*)\.[^.]+/', '$1', $file_name.'_'.$currTime);
+	echo $dir_name;
 	$file_size =$_FILES['resume']['size'];
 	$file_tmp =$_FILES['resume']['tmp_name'];
 	$file_type=$_FILES['resume']['type'];
@@ -68,8 +72,14 @@ if(isset($_FILES['resume'])){
 			$pythonX3 = `cat "$Resumeslocation/$file_name" > "$Resumeslocation/$text_name"`;
 		}
 		
+		$pythonXc = `mkdir "$Resumeslocation/$dir_name"`;
+		$pythonXe = `mv "$Resumeslocation/$file_name" "$Resumeslocation/$dir_name/"`;
+		$pythonXz = `mv "$Resumeslocation/$text_name" "$Resumeslocation/$dir_name/"`;
 
-		$pythonX4 = `cat "$Resumeslocation/$text_name"`;
+		$pythonXd = `pdfimages "$Resumeslocation/$file_name" "$Resumeslocation/$dir_name/"`;
+		$pythonX4 = `cat "$Resumeslocation/$dir_name/$text_name"`;
+		
+
 		echo nl2br($pythonX4);
 	}else{
 		print_r($errors);
