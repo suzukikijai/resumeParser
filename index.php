@@ -56,10 +56,10 @@ if(isset($_FILES['resume'])){
 			$pythonX3 = `cat "$Resumeslocation/$file_name" > "$Resumeslocation/$text_name"`;
 		}
 		else if($file_ext == "docx"){
-			$pythonX3 = `docx2txt "$Resumeslocation/$file_name"`;
+			$pythonX3 = `docx2txt "$Resumeslocation/$file_name" > "$Resumeslocation/$text_name"`;
 		}
 		else if($file_ext == "rtf"){
-			$pythonX2 = `unrtf --text --quiet /home/sageadmin/Desktop/sdfsd.rtf | grep "^[^#]"`;
+			$pythonX2 = `unrtf --text --quiet "$Resumeslocation/$file_name" | grep "^[^#]"`;
 			$pythonX2 = preg_replace('/-+(.*)/', '$1', $pythonX2);
 			// echo $pythonX2;
 			$pythonX3 = `echo "$pythonX2" > "$Resumeslocation/$text_name"`;
