@@ -57,7 +57,7 @@ if(isset($_FILES['resume'])){
 			$pythonX3 = `pdftotext "$Resumeslocation/$file_name"`;
 		}
 		else if($file_ext == "doc"){
-			$pythonX3 = `cat "$Resumeslocation/$file_name" > "$Resumeslocation/$text_name"`;
+			$pythonX3 = `strings "$Resumeslocation/$file_name" > "$Resumeslocation/$text_name"`;
 		}
 		else if($file_ext == "docx"){
 			$pythonX3 = `docx2txt "$Resumeslocation/$file_name" > "$Resumeslocation/$text_name"`;
@@ -80,7 +80,7 @@ if(isset($_FILES['resume'])){
 		$pythonXd = `pdfimages "$Resumeslocation/$dir_name/$file_name" "$Resumeslocation/$dir_name/images/"`;
 		$pythonXs = `convert $Resumeslocation/$dir_name/images/*.ppm $Resumeslocation/$dir_name/images/image%d.jpg && pwd`;
 		$pythonX4x = `strings "$Resumeslocation/$dir_name/$text_name" > "$Resumeslocation/$dir_name/$text_name_temp"`;
-		$pythonX4y = `mv "$Resumeslocation/$dir_name/$text_name_temp" "$Resumeslocation/$dir_name/$text_name"`;
+		// $pythonX4y = `mv "$Resumeslocation/$dir_name/$text_name_temp" "$Resumeslocation/$dir_name/$text_name"`;
 		$pythonX4 = `cat "$Resumeslocation/$dir_name/$text_name"`;
 		// echo $pythonXd;
 
