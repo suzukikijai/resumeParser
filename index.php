@@ -73,12 +73,16 @@ if(isset($_FILES['resume'])){
 		}
 		
 		$pythonXc = `mkdir "$Resumeslocation/$dir_name"`;
+		$pythonXr = `mkdir "$Resumeslocation/$dir_name/images"`;
 		$pythonXe = `mv "$Resumeslocation/$file_name" "$Resumeslocation/$dir_name/"`;
 		$pythonXz = `mv "$Resumeslocation/$text_name" "$Resumeslocation/$dir_name/"`;
 
-		$pythonXd = `pdfimages "$Resumeslocation/$file_name" "$Resumeslocation/$dir_name/"`;
+		$pythonXd = `pdfimages "$Resumeslocation/$dir_name/$file_name" "$Resumeslocation/$dir_name/images/"`;
+		$pythonXs = `convert $Resumeslocation/$dir_name/images/*.ppm $Resumeslocation/$dir_name/images/image%d.jpg && pwd`;
+		$pythonX4x = `strings "$Resumeslocation/$dir_name/$text_name" > "$Resumeslocation/$dir_name/$text_name_temp"`;
+		$pythonX4y = `mv "$Resumeslocation/$dir_name/$text_name_temp" "$Resumeslocation/$dir_name/$text_name"`;
 		$pythonX4 = `cat "$Resumeslocation/$dir_name/$text_name"`;
-		
+		// echo $pythonXd;
 
 		echo nl2br($pythonX4);
 	}else{
