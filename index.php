@@ -71,6 +71,9 @@ if(isset($_FILES['resume'])){
 		else if($file_ext == "txt"){
 			$pythonX3 = `cat "$Resumeslocation/$file_name" > "$Resumeslocation/$text_name"`;
 		}
+		else if($file_ext == "html"){
+			$pythonX3 = `cat "$Resumeslocation/$file_name" > "$Resumeslocation/$text_name"`;
+		}
 		
 		$pythonXc = `mkdir "$Resumeslocation/$dir_name"`;
 		$pythonXr = `mkdir "$Resumeslocation/$dir_name/images"`;
